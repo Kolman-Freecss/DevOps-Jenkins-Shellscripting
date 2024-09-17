@@ -1,0 +1,55 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Install dependencies') {
+            steps {
+                sh '''
+                # Set up virtual environment
+                python3 -m venv venv
+                source venv/bin/activate
+
+                # Install requirements
+                pip install -r requirements.txt
+                '''
+            }
+        }
+
+        stage('Run Tests') {
+            steps {
+                sh '''
+                # Run tests
+                source venv/bin/activate
+                pytest --maxfail=1 --disable-warnings
+                '''
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                sh '''
+                # Example of a deploy step
+                echo "Deploying application..."
+                # Custom deployment logic
+                '''
+            }
+        }
+
+        stages {
+        stage('Run Shell Script') {
+            steps {
+                sh '''
+                # Running the shell script with parameters
+                ./test_script.sh "param1_value" "param2_value"
+                '''
+            }
+        }
+    }
+    }
+
+    post {
+        always {
+            sh 'echo "Cleaning up workspace..."'
+        }
+    }
+}
