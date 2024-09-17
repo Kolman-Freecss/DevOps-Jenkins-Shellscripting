@@ -4,6 +4,7 @@ This project is a repository to show the DevOps process with a focus on Jenkins.
 
 - Jenkins set up with docker-compose
 - Automatization Jenkins jobs with Python.
+- Integration Jenkins with AWS
 
 ## Index
 
@@ -17,6 +18,7 @@ Config Jenkins on your local machine:
 
 1. Execute `docker-compsoe.yml` from `.docker/local` folder.
 2. Go to `localhost:8080` and follow the instructions to configure Jenkins. (Create an initialAdminPassword)
+3. Install Git plugin for Jenkins. (This is necessary to trigger pipelines with SCM option enabled)
 
 ## Dependencies
 
@@ -26,6 +28,7 @@ Config Jenkins on your local machine:
 
 - Jenkins
 - Docker & Docker Compose
+- AWS
 
 ## Troubleshoting
 

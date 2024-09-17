@@ -1,0 +1,25 @@
+pipeline {
+    agent any
+    environment {
+        AWS_ACCESS_KEY_ID = credentials('aws-access-key-id')
+        AWS_SECRET_ACCESS_KEY = credentials('aws-secret-access-key')
+        S3_BUCKET = 'your-s3-bucket-name'
+    }
+    stages {
+        stage('Build') {
+            steps {
+                // Your build steps here
+            }
+        }
+        stage('Deploy to S3') {
+            steps {
+                script {
+                    def s3 = sh(script: 'aws s3 cp your-build-artifact s3://$S3_BUCKET/', returnStatus: true)
+                    if (s3 != 0) {
+                        error "Failed to upload to S3"
+                    }
+                }
+            }
+        }
+    }
+}

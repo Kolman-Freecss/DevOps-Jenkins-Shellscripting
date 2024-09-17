@@ -14,12 +14,16 @@ job_name = 'jenkins_trigger_python'
 # --------- Job Configuration ---------
 job_config = open('.data/03_jenkins_trigger_python.xml').read()
 
-# --------- Create a new job ---------
-print(f'Creating job {job_name}')
-if jenkins_service.job_exists(job_name):
-    jenkins_service.delete_job(job_name)
-jenkins_service.create_job(job_name, job_config)
+try:
+    # --------- Create a new job ---------
+    print(f'Creating job {job_name}')
+    if jenkins_service.job_exists(job_name):
+        jenkins_service.delete_job(job_name)
+    jenkins_service.create_job(job_name, job_config)
 
-# --------- Build a job ---------
-print(f'Building job {job_name}')
-jenkins_service.build_job(job_name)
+    # --------- Build a job ---------
+    print(f'Building job {job_name}')
+    jenkins_service.build_job(job_name)
+except Exception as e:
+    print("Error: ", e)
+    exit(1)
