@@ -1,10 +1,11 @@
 # DevOps with focus Jenkins 
 
-This project is a repository to show the DevOps process with a focus on Jenkins.
+This project is a repository to show the DevOps process with top tech stack.
 
 - Jenkins set up with docker-compose
 - Automatization Jenkins jobs with Python.
 - Integration Jenkins with AWS
+- Terraform to create infrastructure on AWS with Jenkins
 
 ## Index
 
@@ -19,6 +20,43 @@ Config Jenkins on your local machine:
 1. Execute `docker-compsoe.yml` from `.docker/local` folder.
 2. Go to `localhost:8080` and follow the instructions to configure Jenkins. (Create an initialAdminPassword)
 3. Install Git plugin for Jenkins. (This is necessary to trigger pipelines with SCM option enabled)
+
+### AWS Configuration
+
+Requirements:
+- Create your AWS account.
+- Create your Access Key in the Security Credentials section.
+
+1. Configure AWS CLI with your credentials:
+
+```bash
+aws configure
+
+# AWS Access Key ID [None]: YOUR_ACCESS_KEY
+# AWS Secret Access Key [None]: YOUR_SECRET_ACCESS_KEY
+```
+
+
+### Trigger Terraform pipeline
+
+
+1. Init Terraform: 
+
+```bash
+terraform init
+```
+
+2. Plan Terraform:
+
+```bash
+terraform plan
+```
+
+3. Apply Terraform:
+
+```bash
+terraform apply
+```
 
 ## Dependencies
 
