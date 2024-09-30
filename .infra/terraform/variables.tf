@@ -1,5 +1,5 @@
 variable "instance_type" {
-  default = "t3.micro"
+  default = "t2.micro"
 }
 
 variable "key_name" {

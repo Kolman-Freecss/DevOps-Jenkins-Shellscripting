@@ -26,6 +26,10 @@ Config Jenkins on your local machine:
 Requirements:
 - Create your AWS account.
 - Create your Access Key in the Security Credentials section.
+- Take an AMI valid for your region.
+- Configure SSH key pair in your AWS account for EC2 instances.
+- Configure VPC.
+- Configure Subnet.
 
 1. Configure AWS CLI with your credentials:
 
@@ -36,9 +40,20 @@ aws configure
 # AWS Secret Access Key [None]: YOUR_SECRET_ACCESS_KEY
 ```
 
+2. Go to AMI Catalog and take an AMI ID for your region.
+
+Put your AMI ID in `main.tf` file.
+
+3. Configure your SSH key pair in `main.tf` file.
+
+```bash
+aws ec2 create-key-pair --key-name my-ssh-key --query 'KeyMaterial' --output text > my-ssh-key.pem
+```
+
 
 ### Trigger Terraform pipeline
 
+Project has different .tf files decoupled by behaviour. Terraform will treat all files as an unique project.
 
 1. Init Terraform: 
 
@@ -56,6 +71,12 @@ terraform plan
 
 ```bash
 terraform apply
+```
+
+4. Destroy Terraform:
+
+```bash
+terraform destroy
 ```
 
 ## Dependencies

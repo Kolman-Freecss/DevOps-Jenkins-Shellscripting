@@ -38,7 +38,7 @@ resource "aws_security_group" "jenkins_sg" {
 
 # Create an EC2 instance for Jenkins
 resource "aws_instance" "jenkins_server" {
-  ami           = "ami-0c55b159cbfafe1f0" # Amazon Linux 2 AMI or any other valid AMI
+  ami           = "ami-0e54eba7c51c234f6" # Amazon Linux 2 AMI or any other valid AMI
   instance_type = var.instance_type
   key_name      = var.key_name
   subnet_id     = var.subnet_id
