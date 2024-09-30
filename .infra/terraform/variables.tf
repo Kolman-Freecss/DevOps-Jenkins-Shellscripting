@@ -7,11 +7,6 @@ variable "key_name" {
   default     = "my-ssh-key"
 }
 
-variable "vpc_id" {
-  description = "VPC ID where the instance will be created"
-  default     = ""
-}
-
 variable "subnet_id" {
   description = "Subnet ID where the instance will be created"
   default     = ""
