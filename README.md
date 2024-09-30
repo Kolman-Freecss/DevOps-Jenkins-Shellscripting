@@ -5,18 +5,20 @@ This project is a repository to show the DevOps process with top tech stack.
 - Jenkins set up with docker-compose
 - Automatization Jenkins jobs with Python.
 - Integration Jenkins with AWS
-- Terraform to create infrastructure on AWS with Jenkins
+- Terraform to create infrastructure on AWS with a Jenkins implementation.
 
-## Index
+# Index
 
 - [Getting Started](#getting-started)
   - [AWS Configuration](#aws-configuration)
-  - [Trigger Terraform pipeline](#trigger-terraform-pipeline)
-  - [Connect to EC2 instance](#connect-to-ec2-instance)
+    - [Trigger Terraform pipeline](#trigger-terraform-pipeline)
+    - [Connect to EC2 instance](#connect-to-ec2-instance)
 - [Dependencies](#dependencies)
 - [Tech stacks CI/CD](#tech-stacks-ci/cd)
 
-## Getting Started
+# Getting Started
+
+## Local installation
 
 Config Jenkins on your local machine:
 
@@ -24,7 +26,9 @@ Config Jenkins on your local machine:
 2. Go to `localhost:8080` and follow the instructions to configure Jenkins. (Create an initialAdminPassword)
 3. Install Git plugin for Jenkins. (This is necessary to trigger pipelines with SCM option enabled)
 
-### AWS Configuration
+## AWS Configuration
+
+Implantation of Jenkins automated with Terraform on AWS. 
 
 Requirements:
 - Create your AWS account.
@@ -93,17 +97,17 @@ Here we've different ways to connect to EC2 instance:
 ssh -i my-ssh-key.pem ec2-user@YOUR_EC2_PUBLIC_IP
 ```
 
-## Dependencies
+# Dependencies
 
 - Jenkins API
 
-## Tech stacks CI/CD
+# Tech stacks CI/CD
 
 - Jenkins
 - Docker & Docker Compose
 - AWS
 
-## Troubleshoting
+# Troubleshoting
 
 - Script to install Jenkins not working properly. 
   - Alternative Solution: Connect through SSH to the EC2 instance and install Jenkins manually. (https://mirrors.jenkins.io/redhat-stable/)

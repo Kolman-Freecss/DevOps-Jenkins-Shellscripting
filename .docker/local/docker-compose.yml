@@ -2,13 +2,16 @@ version: '3.8'
 
 services:
   jenkins:
-    image: jenkins/jenkins:lts
+    image: jenkins/jenkins:2.462.2-jdk17
     container_name: jenkins
     ports:
       - "8080:8080"  # UI Jenkins
       - "50000:50000" # Jenkins agents
     volumes:
       - jenkins_home:/var/jenkins_home # Volume for Jenkins .data
+    dns:
+      - 8.8.8.8  # Google DNS
+      - 8.8.4.4  # Google DNS
 
 volumes:
   jenkins_home:
