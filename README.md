@@ -10,6 +10,9 @@ This project is a repository to show the DevOps process with top tech stack.
 ## Index
 
 - [Getting Started](#getting-started)
+  - [AWS Configuration](#aws-configuration)
+  - [Trigger Terraform pipeline](#trigger-terraform-pipeline)
+  - [Connect to EC2 instance](#connect-to-ec2-instance)
 - [Dependencies](#dependencies)
 - [Tech stacks CI/CD](#tech-stacks-ci/cd)
 
@@ -79,6 +82,17 @@ terraform apply
 terraform destroy
 ```
 
+### Connect to EC2 instance
+
+Here we've different ways to connect to EC2 instance:
+
+1. Using SSH command:
+
+```bash
+# Create your SSH key pair previously in the EC2 AWS section.
+ssh -i my-ssh-key.pem ec2-user@YOUR_EC2_PUBLIC_IP
+```
+
 ## Dependencies
 
 - Jenkins API
@@ -91,6 +105,14 @@ terraform destroy
 
 ## Troubleshoting
 
+- Script to install Jenkins not working properly. 
+  - Alternative Solution: Connect through SSH to the EC2 instance and install Jenkins manually. (https://mirrors.jenkins.io/redhat-stable/)
+    - After that connect to the IPv4 Public EC2 instance with HTTP protocol and port 8080.
+      - Example: http://YOUR_EC2_PUBLIC_IP:8080
+- Check SSH key permissions to connect to EC2 instance.
+  - `chmod 400 my-ssh-key.pem`
+  - Remove permissions to other group users or another users because AWS won't let you connect to the EC2 instance if the permissions are too permissive.
+- Check EC2 system log from AWS section to see if Jenkins is running properly or installed. 
 
 ---
 
