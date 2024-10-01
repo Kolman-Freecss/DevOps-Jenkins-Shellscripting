@@ -117,6 +117,7 @@ ssh -i my-ssh-key.pem ec2-user@YOUR_EC2_PUBLIC_IP
   - `chmod 400 my-ssh-key.pem`
   - Remove permissions to other group users or another users because AWS won't let you connect to the EC2 instance if the permissions are too permissive.
 - Check EC2 system log from AWS section to see if Jenkins is running properly or installed.
+- https://community.jenkins.io/t/issue-while-upgrading-plugins-on-latest-jenkins/9846
 - It takes its time to start even if the instance is running. Be patient. :)
   - Check logs with
     - ```bash
