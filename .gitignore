@@ -7,3 +7,7 @@
 
 # Ssh keys
 *.pem
+
+# Ignore jenkins_plugins folder except .gitkeep
+**/jenkins_plugins/*
+!**/jenkins_plugins/.gitkeep

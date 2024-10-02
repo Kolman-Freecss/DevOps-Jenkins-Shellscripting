@@ -12,6 +12,7 @@ services:
     volumes:
       - jenkins_home:/var/jenkins_home # Volume for Jenkins .data
       - ./init-scripts:/var/jenkins_init_scripts # We mount the init scripts
+      - ./jenkins_plugins:/var/jenkins_home/plugins # We mount the plugins
 #      - ./hosts/hosts:/etc/hosts  # Custom Hosts file
     entrypoint: ["/bin/bash", "-c", "/var/jenkins_init_scripts/init.sh && /usr/bin/tini -- /usr/local/bin/jenkins.sh"]
 

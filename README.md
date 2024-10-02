@@ -13,6 +13,7 @@ This project is a repository to show the DevOps process with top tech stack.
   - [AWS Configuration](#aws-configuration)
     - [Trigger Terraform pipeline](#trigger-terraform-pipeline)
     - [Connect to EC2 instance](#connect-to-ec2-instance)
+- [Configuration](#configuration)
 - [Dependencies](#dependencies)
 - [Tech stacks CI/CD](#tech-stacks-ci/cd)
 
@@ -97,6 +98,36 @@ Here we've different ways to connect to EC2 instance:
 ssh -i my-ssh-key.pem ec2-user@YOUR_EC2_PUBLIC_IP
 ```
 
+# Configuration
+
+In this project, a Jenkins docker image was built and pushed to Docker Hub to store a basic archetypal Jenkins config with Git and Pipeline plugins.
+
+You can pulled it from Docker Hub with:
+
+```bash
+docker pull kolmanfreecss/jenkins-git
+```
+
+(Process to build the image and push it to Docker Hub)
+
+1. Commit the current status container
+
+```bash
+docker commit YOUR_CONTAINER_ID kolmanfreecss/jenkins-git
+```
+
+2. Login to Docker Hub
+
+```bash
+docker login
+```
+
+3. Push the image to Docker Hub
+
+```bash
+docker push kolmanfreecss/jenkins-git
+```
+
 # Dependencies
 
 - Jenkins API
@@ -117,7 +148,21 @@ ssh -i my-ssh-key.pem ec2-user@YOUR_EC2_PUBLIC_IP
   - `chmod 400 my-ssh-key.pem`
   - Remove permissions to other group users or another users because AWS won't let you connect to the EC2 instance if the permissions are too permissive.
 - Check EC2 system log from AWS section to see if Jenkins is running properly or installed.
-- https://community.jenkins.io/t/issue-while-upgrading-plugins-on-latest-jenkins/9846
+- BIG Problems installing plugins https://community.jenkins.io/t/issue-while-upgrading-plugins-on-latest-jenkins/9846
+  - It seems that halifax has blocked the ISP, so we need to install the plugins manually or use another ISP in order to install them.
+    - https://community.jenkins.io/t/installing-suggested-plugins-in-jenkins-fails-due-to-connection-timed-out/12564
+  - Another solution is to use a VPN to change the IP address and try to install the plugins again.
+  - Another solution: https://stackoverflow.com/questions/77096022/jenkins-cli-to-install-jenkins-plugins-error-unknownhostexception
+    - Manual installation of plugins. (https://www.jenkins.io/doc/book/managing/plugins/#advanced-installatio)
+      - To install them to have Git for example you will need to install before Git plugin all its dependencies. Follow this order:
+        1. https://plugins.jenkins.io/instance-identity/releases/
+        2. https://plugins.jenkins.io/mailer/releases/
+        3. https://plugins.jenkins.io/credentials/releases/
+        4. https://plugins.jenkins.io/plain-credentials/releases/
+        5. https://plugins.jenkins.io/variant/releases/
+        6. https://plugins.jenkins.io/ssh-credentials/releases/
+        7. https://plugins.jenkins.io/credentials-binding/releases/
+        8. https://plugins.jenkins.io/git-client/releases/
 - It takes its time to start even if the instance is running. Be patient. :)
   - Check logs with
     - ```bash

@@ -35,7 +35,6 @@ pipeline {
             }
         }
 
-        stages {
         stage('Run Shell Script') {
             steps {
                 sh '''
@@ -44,7 +43,6 @@ pipeline {
                 '''
             }
         }
-    }
     }
 
     post {
