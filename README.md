@@ -6,9 +6,11 @@ This project is a repository to show the DevOps process with top tech stack.
 - Automatization Jenkins jobs with Python.
 - Integration Jenkins with AWS
 - Terraform to create infrastructure on AWS with a Jenkins implementation.
+- Github Actions to CI/CD with Jenkins.
 
 # Index
 
+- [Systems](#systems)
 - [Getting Started](#getting-started)
   - [AWS Configuration](#aws-configuration)
     - [Trigger Terraform pipeline](#trigger-terraform-pipeline)
@@ -16,6 +18,12 @@ This project is a repository to show the DevOps process with top tech stack.
 - [Configuration](#configuration)
 - [Dependencies](#dependencies)
 - [Tech stacks CI/CD](#tech-stacks-ci/cd)
+
+# Systems
+
+- Automate Jenkins implantation on AWS with Terraform
+- Automate Jenkins jobs with Python
+- Execute local Jenkins with preconfigured plugins with a custom image on Docker Hub with Docker Compose.
 
 # Getting Started
 
