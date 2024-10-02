@@ -1,20 +1,12 @@
 pipeline {
-    agent any
+    agent {
+        docker {
+            image 'python:3.8'
+            args '-u root:root'
+        }
+    }
 
     stages {
-
-        stage('Install Python3') {
-            steps {
-                sh '''
-                # Install Python3
-                if ! command -v python3 &> /dev/null
-                then
-                    sudo apt-get update
-                    sudo apt-get install -y python3
-                fi
-                '''
-            }
-        }
 
         stage('Install dependencies') {
             steps {
