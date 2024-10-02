@@ -22,6 +22,7 @@ This project is a repository to show the DevOps process with top tech stack.
 ## Local installation
 
 Config Jenkins on your local machine:
+- Initial password located at `/var/jenkins_home/secrets/initialAdminPassword`
 
 1. Execute `docker-compsoe.yml` from `.docker/local` folder.
 2. Go to `localhost:8080` and follow the instructions to configure Jenkins. (Create an initialAdminPassword)
@@ -100,7 +101,7 @@ ssh -i my-ssh-key.pem ec2-user@YOUR_EC2_PUBLIC_IP
 
 # Configuration
 
-In this project, a Jenkins docker image was built and pushed to Docker Hub to store a basic archetypal Jenkins config with Git and Pipeline plugins.
+In this project, a Jenkins docker image was built and pushed to Docker Hub to store a basic archetypal Jenkins config with Git, Docker and Pipeline plugins.
 
 You can pulled it from Docker Hub with:
 
@@ -134,7 +135,7 @@ docker push kolmanfreecss/jenkins-git
   - Plugins:
     - Git (Check Configuration section)
     - Pipeline (Check Configuration section)
-    - Docker (Additional to this project)
+    - Docker (Check Configuration section)
 
 # Tech stacks CI/CD
 

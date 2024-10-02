@@ -1,5 +1,5 @@
 # Use the Jenkins base image
-FROM jenkins/jenkins:latest
+FROM kolmanfreecss/jenkins-git:latest
 
 # Switch to the root user to install packages
 USER root
@@ -11,7 +11,4 @@ COPY install_deps.sh /usr/local/bin/install_deps.sh
 RUN /usr/local/bin/install_deps.sh
 
 # Switch back to the Jenkins user
-USER jenkins
-
-# Start docker and Jenkins services
-CMD ["bash", "-c", "dockerd & jenkins"]
+#USER jenkins

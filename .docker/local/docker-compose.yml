@@ -18,7 +18,8 @@ services:
       - ./init-scripts:/var/jenkins_init_scripts # We mount the init scripts
       - ./jenkins_plugins:/var/jenkins_home/plugins # We mount the plugins
 #      - ./hosts/hosts:/etc/hosts  # Custom Hosts file
-    entrypoint: ["/bin/bash", "-c", "/var/jenkins_init_scripts/init.sh && /usr/bin/tini -- /usr/local/bin/jenkins.sh"]
+#    entrypoint: ["/bin/bash", "-c", "/var/jenkins_init_scripts/init.sh && /usr/bin/tini -- /usr/local/bin/jenkins.sh"]
+    entrypoint: ["/bin/bash", "-c", "/usr/bin/tini -- /usr/local/bin/jenkins.sh & dockerd > /var/log/dockerd.log 2>&1"]
     dns:
       - 8.8.8.8  # Google DNS
       - 8.8.4.4  # Google DNS

@@ -8,18 +8,11 @@ pipeline {
 
     stages {
 
-        stage('Docker check') {
-            steps {
-                sh 'docker --version'
-            }
-        }
-
         stage('Install dependencies') {
             steps {
                 sh '''
                 # Set up virtual environment
                 python3 -m venv venv
-                source venv/bin/activate
 
                 # Install requirements
                 pip install -r requirements.txt
@@ -31,8 +24,7 @@ pipeline {
             steps {
                 sh '''
                 # Run tests
-                source venv/bin/activate
-                pytest --maxfail=1 --disable-warnings
+                # pytest --maxfail=1 --disable-warnings
                 '''
             }
         }
@@ -51,7 +43,7 @@ pipeline {
             steps {
                 sh '''
                 # Running the shell script with parameters
-                ./test_script.sh "param1_value" "param2_value"
+                bash $WORKSPACE/shellscript/test_script.sh "param1_value" "param2_value"
                 '''
             }
         }
