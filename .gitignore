@@ -11,3 +11,6 @@
 # Ignore jenkins_plugins folder except .gitkeep
 **/jenkins_plugins/*
 !**/jenkins_plugins/.gitkeep
+
+# Ignore .env/local.env files
+.env/local.env

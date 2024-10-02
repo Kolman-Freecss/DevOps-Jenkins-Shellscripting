@@ -1,6 +1,6 @@
 <?xml version='1.1' encoding='UTF-8'?>
 <flow-definition plugin="workflow-job@2.40">
-    <description>Job para el proyecto {repo_name} que se ejecuta por webhook</description>
+    <description>Job for project {repo_name} that execute through webhook</description>
     <keepDependencies>false</keepDependencies>
     <properties/>
     <definition class="org.jenkinsci.plugins.workflow.cps.CpsScmFlowDefinition" plugin="workflow-cps@2.90">
@@ -8,19 +8,19 @@
             <configVersion>2</configVersion>
             <userRemoteConfigs>
                 <hudson.plugins.git.UserRemoteConfig>
-                    <url>https://github.com/{repo_name}.git</url>
+                    <url>https://github.com/Kolman-Freecss/DevOps-Jenkins-Shellscripting-AWS-Python.git</url>
                 </hudson.plugins.git.UserRemoteConfig>
             </userRemoteConfigs>
             <branches>
                 <hudson.plugins.git.BranchSpec>
-                    <name>*/main</name>
+                    <name>*/master</name>
                 </hudson.plugins.git.BranchSpec>
             </branches>
             <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
             <submoduleCfg class="list"/>
             <extensions/>
         </scm>
-        <scriptPath>Jenkinsfile</scriptPath>
+        <scriptPath>jenkins/Jenkinsfile</scriptPath>
         <lightweight>true</lightweight>
     </definition>
     <triggers>

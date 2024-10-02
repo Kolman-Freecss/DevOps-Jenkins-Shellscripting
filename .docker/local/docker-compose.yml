@@ -16,7 +16,7 @@ services:
     environment:
       - TINI_SUBREAPER=1  # Register Tini as a subreaper (to not need to use Tini as PID 1)
     volumes:
-      - jenkins_home:/var/jenkins_home # Volume for Jenkins .data
+      - jenkins_home:/var/jenkins_home # Volume for Jenkins data
       - ./init-scripts:/var/jenkins_init_scripts # We mount the init scripts
       - ./jenkins_plugins:/var/jenkins_home/plugins # We mount the plugins
 #      - ./hosts/hosts:/etc/hosts  # Custom Hosts file

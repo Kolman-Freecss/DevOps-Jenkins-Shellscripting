@@ -12,7 +12,7 @@ print('Hello %s from Jenkins %s' % (user['fullName'], version))
 
 job_name = 'jenkins_trigger_python'
 # --------- Job Configuration ---------
-job_config = open('.data/03_jenkins_trigger_python.xml').read()
+job_config = open('data/03_jenkins_trigger_python.xml').read()
 
 try:
     # --------- Create a new job ---------

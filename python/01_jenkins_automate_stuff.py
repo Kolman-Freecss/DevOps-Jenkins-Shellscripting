@@ -22,7 +22,7 @@ if jenkins_service.job_exists('api-test'):
 
 # --------- Create a new job ---------
 # Get 01_create_job.xml file content
-job_config = open('.data/01_create_job.xml').read()
+job_config = open('data/01_create_job.xml').read()
 
 # Method 1
 # response = requests.post(
@@ -54,7 +54,7 @@ jenkins_service.enable_job('api-test')
 
 # --------- Reconfig a job ---------
 # Get 02_reconfig_job.xml file content
-job_config = open('.data/02_reconfig_job.xml').read()
+job_config = open('data/02_reconfig_job.xml').read()
 jenkins_service.reconfig_job('api-test', job_config)
 
 # build a parameterized job
