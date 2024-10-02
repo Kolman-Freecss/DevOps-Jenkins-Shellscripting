@@ -23,7 +23,7 @@ path_job = 'python/data/main_build_webhook.xml'
 
 # List all content dir
 try:
-    content = os.listdir('.')
+    content = os.listdir('../../../python')
     print(content)
 except Exception as e:
     print(e)
