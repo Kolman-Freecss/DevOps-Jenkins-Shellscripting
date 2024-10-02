@@ -131,6 +131,10 @@ docker push kolmanfreecss/jenkins-git
 # Dependencies
 
 - Jenkins API
+  - Plugins:
+    - Git (Check Configuration section)
+    - Pipeline (Check Configuration section)
+    - Docker (Additional to this project)
 
 # Tech stacks CI/CD
 

@@ -2,7 +2,9 @@ version: '3.8'
 
 services:
   jenkins:
-    image: jenkins/jenkins:latest
+    build:
+      context: .  # Path where the Dockerfile is located
+      dockerfile: Dockerfile  # Name of the Dockerfile
     container_name: jenkins
     ports:
       - "8080:8080"  # UI Jenkins
@@ -15,7 +17,6 @@ services:
       - ./jenkins_plugins:/var/jenkins_home/plugins # We mount the plugins
 #      - ./hosts/hosts:/etc/hosts  # Custom Hosts file
     entrypoint: ["/bin/bash", "-c", "/var/jenkins_init_scripts/init.sh && /usr/bin/tini -- /usr/local/bin/jenkins.sh"]
-
     dns:
       - 8.8.8.8  # Google DNS
       - 8.8.4.4  # Google DNS
