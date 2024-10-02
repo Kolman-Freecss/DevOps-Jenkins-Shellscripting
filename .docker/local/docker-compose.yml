@@ -13,6 +13,8 @@ services:
       - "50000:50000" # Jenkins agents
 #    environment:
 #      - JAVA_OPTS=-Djenkins.install.runSetupWizard=false -Dcom.sun.net.ssl.checkRevocation=false -Djavax.net.ssl.trustStore=/dev/null
+    environment:
+      - TINI_SUBREAPER=1  # Register Tini as a subreaper (to not need to use Tini as PID 1)
     volumes:
       - jenkins_home:/var/jenkins_home # Volume for Jenkins .data
       - ./init-scripts:/var/jenkins_init_scripts # We mount the init scripts
