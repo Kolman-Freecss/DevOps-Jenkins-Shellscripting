@@ -12,3 +12,6 @@ RUN /usr/local/bin/install_deps.sh
 
 # Switch back to the Jenkins user
 USER jenkins
+
+# Start docker and Jenkins services
+CMD ["bash", "-c", "dockerd & jenkins"]
